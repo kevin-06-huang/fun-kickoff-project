@@ -8,12 +8,10 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   label: {
     fontSize: 19,
-    color: 'rgb(0,0,0,0.4)',
-    paddingLeft: '5px',
+    color: 'rgb(0,0,0,1)',
   },
   inputs: {
-    marginTop: '1rem',
-    height: '2rem',
+    height: '3.5rem',
     padding: '5px',
   },
   forgot: {

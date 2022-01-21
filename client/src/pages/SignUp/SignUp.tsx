@@ -50,8 +50,8 @@ export default function Register(): JSX.Element {
           <Box width="100%" maxWidth={450} p={3} alignSelf="center">
             <Grid container>
               <Grid item xs>
-                <Typography className={classes.welcome} component="h1" variant="h5">
-                  Create an account
+                <Typography className={classes.welcome} component="h1" variant="h3">
+                  Sign Up
                 </Typography>
               </Grid>
             </Grid>
