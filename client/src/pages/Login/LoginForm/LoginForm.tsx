@@ -1,6 +1,10 @@
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
+import FormLabel from '@mui/material/FormLabel';
+import FormControl from '@mui/material/FormControl';
+import OutlinedInput from '@mui/material/OutlinedInput';
+import FormHelperText from '@mui/material/FormHelperText';
 import Typography from '@mui/material/Typography';
 import CircularProgress from '@mui/material/CircularProgress';
 import { Formik, FormikHelpers } from 'formik';
@@ -46,44 +50,38 @@ export default function Login({ handleSubmit }: Props): JSX.Element {
     >
       {({ handleSubmit, handleChange, values, touched, errors, isSubmitting }) => (
         <form onSubmit={handleSubmit} className={classes.form} noValidate>
-          <TextField
-            id="email"
-            label={<Typography className={classes.label}>E-mail address</Typography>}
-            fullWidth
-            margin="normal"
-            InputLabelProps={{
-              shrink: true,
-            }}
-            InputProps={{
-              classes: { input: classes.inputs },
-            }}
-            name="email"
-            autoComplete="email"
-            autoFocus
-            helperText={touched.email ? errors.email : ''}
-            error={touched.email && Boolean(errors.email)}
-            value={values.email}
-            onChange={handleChange}
-          />
-          <TextField
-            id="password"
-            label={<Typography className={classes.label}>Password</Typography>}
-            fullWidth
-            margin="normal"
-            InputLabelProps={{
-              shrink: true,
-            }}
-            InputProps={{
-              classes: { input: classes.inputs },
-              endAdornment: <Typography className={classes.forgot}>Forgot?</Typography>,
-            }}
-            type="password"
-            autoComplete="current-password"
-            helperText={touched.password ? errors.password : ''}
-            error={touched.password && Boolean(errors.password)}
-            value={values.password}
-            onChange={handleChange}
-          />
+          <FormControl id="email" fullWidth={true} margin="normal">
+            <FormLabel>
+              <Typography className={classes.label}>EMAIL ADDRESS</Typography>
+            </FormLabel>
+            <OutlinedInput
+              className={classes.inputs}
+              name="email"
+              autoComplete="email"
+              autoFocus={true}
+              error={touched.email && Boolean(errors.email)}
+              value={values.email}
+              placeholder="Your email"
+              onChange={handleChange}
+            />
+            <FormHelperText>{touched.email ? errors.email : ''}</FormHelperText>
+          </FormControl>
+          <FormControl id="password" fullWidth={true} margin="normal">
+            <FormLabel>
+              <Typography className={classes.label}>PASSWORD</Typography>
+            </FormLabel>
+            <OutlinedInput
+              className={classes.inputs}
+              name="password"
+              autoComplete="current-password"
+              type="password"
+              error={touched.password && Boolean(errors.password)}
+              value={values.password}
+              placeholder="Your password"
+              onChange={handleChange}
+            />
+            <FormHelperText>{touched.email ? errors.email : ''}</FormHelperText>
+          </FormControl>
           <Box textAlign="center" marginTop={5}>
             <Button type="submit" size="large" variant="contained" color="primary" className={classes.submit}>
               {isSubmitting ? <CircularProgress style={{ color: 'white' }} /> : 'Login'}

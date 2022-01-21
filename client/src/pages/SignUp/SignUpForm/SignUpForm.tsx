@@ -1,5 +1,4 @@
 import Button from '@mui/material/Button';
-import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
 import FormLabel from '@mui/material/FormLabel';
 import FormControl from '@mui/material/FormControl';
@@ -55,7 +54,7 @@ const SignUpForm = ({ handleSubmit }: Props): JSX.Element => {
     >
       {({ handleSubmit, handleChange, values, touched, errors, isSubmitting }) => (
         <form onSubmit={handleSubmit} className={classes.form} noValidate>
-          <FormControl id="email" fullWidth={true} margin="none">
+          <FormControl id="email" fullWidth={true} margin="normal">
             <FormLabel>
               <Typography className={classes.label}>EMAIL ADDRESS</Typography>
             </FormLabel>
@@ -70,7 +69,7 @@ const SignUpForm = ({ handleSubmit }: Props): JSX.Element => {
             />
             <FormHelperText>{touched.email ? errors.email : ''}</FormHelperText>
           </FormControl>
-          <FormControl id="username" fullWidth={true} margin="none">
+          <FormControl id="username" fullWidth={true} margin="normal">
             <FormLabel>
               <Typography className={classes.label}>USERNAME</Typography>
             </FormLabel>
@@ -86,7 +85,7 @@ const SignUpForm = ({ handleSubmit }: Props): JSX.Element => {
             />
             <FormHelperText>{touched.username ? errors.username : ''}</FormHelperText>
           </FormControl>
-          <FormControl id="password" fullWidth={true} margin="none">
+          <FormControl id="password" fullWidth={true} margin="normal">
             <FormLabel>
               <Typography className={classes.label}>PASSWORD</Typography>
             </FormLabel>
@@ -94,6 +93,7 @@ const SignUpForm = ({ handleSubmit }: Props): JSX.Element => {
               className={classes.inputs}
               name="password"
               autoComplete="current-password"
+              type="password"
               error={touched.password && Boolean(errors.password)}
               value={values.password}
               placeholder="Create a password"
