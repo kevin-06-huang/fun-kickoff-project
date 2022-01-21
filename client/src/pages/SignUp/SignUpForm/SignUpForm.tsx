@@ -13,13 +13,13 @@ import useStyles from './useStyles';
 interface Props {
   handleSubmit: (
     {
-      username,
       email,
+      name,
       password,
     }: {
       email: string;
       password: string;
-      username: string;
+      name: string;
     },
     {
       setStatus,
@@ -27,7 +27,7 @@ interface Props {
     }: FormikHelpers<{
       email: string;
       password: string;
-      username: string;
+      name: string;
     }>,
   ) => void;
 }
@@ -40,10 +40,10 @@ const SignUpForm = ({ handleSubmit }: Props): JSX.Element => {
       initialValues={{
         email: '',
         password: '',
-        username: '',
+        name: '',
       }}
       validationSchema={Yup.object().shape({
-        username: Yup.string().required('Username is required').max(40, 'Username is too long'),
+        name: Yup.string().required('Name is required'),
         email: Yup.string().required('Email is required').email('Email is not valid'),
         password: Yup.string()
           .required('Password is required')
@@ -54,7 +54,7 @@ const SignUpForm = ({ handleSubmit }: Props): JSX.Element => {
     >
       {({ handleSubmit, handleChange, values, touched, errors, isSubmitting }) => (
         <form onSubmit={handleSubmit} className={classes.form} noValidate>
-          <FormControl id="email" fullWidth={true} margin="normal">
+          <FormControl id="email" fullWidth={true} margin="dense">
             <FormLabel>
               <Typography className={classes.label}>EMAIL ADDRESS</Typography>
             </FormLabel>
@@ -69,23 +69,23 @@ const SignUpForm = ({ handleSubmit }: Props): JSX.Element => {
             />
             <FormHelperText>{touched.email ? errors.email : ''}</FormHelperText>
           </FormControl>
-          <FormControl id="username" fullWidth={true} margin="normal">
+          <FormControl id="name" fullWidth={true} margin="dense">
             <FormLabel>
-              <Typography className={classes.label}>USERNAME</Typography>
+              <Typography className={classes.label}>NAME</Typography>
             </FormLabel>
             <OutlinedInput
               className={classes.inputs}
-              name="username"
-              autoComplete="username"
+              name="name"
+              autoComplete="name"
               autoFocus={true}
-              error={touched.username && Boolean(errors.username)}
-              value={values.username}
-              placeholder="Your username"
+              error={touched.name && Boolean(errors.name)}
+              value={values.name}
+              placeholder="Your name"
               onChange={handleChange}
             />
-            <FormHelperText>{touched.username ? errors.username : ''}</FormHelperText>
+            <FormHelperText>{touched.name ? errors.name : ''}</FormHelperText>
           </FormControl>
-          <FormControl id="password" fullWidth={true} margin="normal">
+          <FormControl id="password" fullWidth={true} margin="dense">
             <FormLabel>
               <Typography className={classes.label}>PASSWORD</Typography>
             </FormLabel>

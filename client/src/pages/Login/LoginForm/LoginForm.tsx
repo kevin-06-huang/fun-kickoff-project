@@ -50,7 +50,7 @@ export default function Login({ handleSubmit }: Props): JSX.Element {
     >
       {({ handleSubmit, handleChange, values, touched, errors, isSubmitting }) => (
         <form onSubmit={handleSubmit} className={classes.form} noValidate>
-          <FormControl id="email" fullWidth={true} margin="normal">
+          <FormControl id="email" fullWidth={true} margin="dense">
             <FormLabel>
               <Typography className={classes.label}>EMAIL ADDRESS</Typography>
             </FormLabel>
@@ -66,7 +66,7 @@ export default function Login({ handleSubmit }: Props): JSX.Element {
             />
             <FormHelperText>{touched.email ? errors.email : ''}</FormHelperText>
           </FormControl>
-          <FormControl id="password" fullWidth={true} margin="normal">
+          <FormControl id="password" fullWidth={true} margin="dense">
             <FormLabel>
               <Typography className={classes.label}>PASSWORD</Typography>
             </FormLabel>
