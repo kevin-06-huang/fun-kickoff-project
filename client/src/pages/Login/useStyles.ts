@@ -9,7 +9,10 @@ const useStyles = makeStyles(() => ({
   },
   authWrapper: {
     minHeight: '100vh',
-    paddingTop: 23,
+  },
+  fullSize: {
+    minHeight: '100vh',
+    minWidth: '100vw',
   },
   welcome: {
     fontSize: 26,
