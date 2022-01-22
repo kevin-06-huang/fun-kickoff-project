@@ -6,8 +6,10 @@ import { CircularProgress, Typography, Grid } from '@mui/material';
 import { Navbar } from '../../components/Navbar/Navbar';
 import { RandomFactCard } from '../../components/FactCard/RandomFactCard';
 import { facts } from '../../mocks/mockFacts';
+import useStyles from './useStyles';
 
 export default function Dashboard(): JSX.Element {
+  const classes = useStyles();
   const { loggedInUser } = useAuth();
   const { initSocket } = useSocket();
   const history = useHistory();
