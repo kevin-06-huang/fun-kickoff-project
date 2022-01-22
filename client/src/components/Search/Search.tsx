@@ -64,7 +64,7 @@ const Search = ({ search, handleChange }: Props): JSX.Element => {
         onClose={() => {
           setOpen(false);
         }}
-        getOptionLabel={(option) => option.username}
+        getOptionLabel={(option) => option.name}
         options={options}
         loading={loading}
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment

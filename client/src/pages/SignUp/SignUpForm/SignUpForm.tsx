@@ -62,6 +62,7 @@ const SignUpForm = ({ handleSubmit }: Props): JSX.Element => {
               className={classes.inputs}
               name="email"
               autoComplete="email"
+              autoFocus={true}
               error={touched.email && Boolean(errors.email)}
               value={values.email}
               placeholder="Your email"
@@ -77,7 +78,6 @@ const SignUpForm = ({ handleSubmit }: Props): JSX.Element => {
               className={classes.inputs}
               name="name"
               autoComplete="name"
-              autoFocus={true}
               error={touched.name && Boolean(errors.name)}
               value={values.name}
               placeholder="Your name"
