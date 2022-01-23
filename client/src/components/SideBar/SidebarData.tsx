@@ -1,24 +1,26 @@
-import React from 'react';
-
 export const SidebarData = [
   {
-    title: 'Home',
-    path: '/',
+    title: 'Edit Profile',
+    path: '/edit',
   },
   {
-    title: 'Team',
-    path: '/team',
+    title: 'Profile Photo',
+    path: '/photo',
   },
   {
-    title: 'Tasks',
-    path: '/tasks',
+    title: 'Availability',
+    path: '/availability',
   },
   {
-    title: 'Chats',
-    path: '/chats',
+    title: 'Payment',
+    path: '/payment',
   },
   {
-    title: 'Analytics',
-    path: '/analytics',
+    title: 'Security',
+    path: '/security',
+  },
+  {
+    title: 'Settings',
+    path: '/settings',
   },
 ];

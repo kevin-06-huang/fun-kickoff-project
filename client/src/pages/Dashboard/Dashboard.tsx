@@ -31,7 +31,7 @@ export default function Dashboard(): JSX.Element {
       <Navbar />
       <Grid container>
         <Grid sx={{ padding: 5 }} container rowSpacing={5} columnSpacing={2}>
-          <Grid item xs={2}>
+          <Grid item xs={3}>
             <Sidebar />
           </Grid>
           <Grid container xs={8} className={classes.container}>
