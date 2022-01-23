@@ -35,7 +35,7 @@ export default function Dashboard(): JSX.Element {
             <Sidebar />
           </Grid>
           <Grid container xs={8} className={classes.container}>
-            <Grid xs={12}>
+            <Grid xs={12} className={classes.welcome}>
               <Typography variant="h4" component="h1">
                 Welcome to random facts!
               </Typography>

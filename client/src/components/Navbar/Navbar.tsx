@@ -14,7 +14,16 @@ import {
 } from '@mui/material';
 import { Menu as MenuIcon, AccountCircle } from '@mui/icons-material';
 import { Person as ProfileIcon, Logout as LogoutIcon, Settings as SettingsIcon } from '@mui/icons-material';
+import styled from 'styled-components';
 import logo from '../../Images/logo.png';
+import PlaceHolderSrc from '../../Images/b1f0e680702e811aa8ba333cb19c0e0ea95e8e31.png';
+
+const PlaceHolder = styled.img`
+  width: 50px;
+  height: 50px;
+  margin: 10px;
+  border-radius: 50%;
+`;
 
 const Navbar: React.FC = () => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
@@ -42,16 +51,7 @@ const Navbar: React.FC = () => {
         <Box display="flex" flexGrow={1} />
         {loggedInUser && (
           <>
-            <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleMenuOpen}
-              color="inherit"
-            >
-              <AccountCircle />
-            </IconButton>
+            <PlaceHolder src={PlaceHolderSrc} alt="logo" onClick={handleMenuOpen} />
             <Menu
               id="menu-appbar"
               anchorEl={anchorEl}
