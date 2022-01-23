@@ -7,6 +7,7 @@ import { Navbar } from '../../components/Navbar/Navbar';
 import { RandomFactCard } from '../../components/FactCard/RandomFactCard';
 import { facts } from '../../mocks/mockFacts';
 import useStyles from './useStyles';
+import { Sidebar } from '../../components/Sidebar/Sidebar';
 
 export default function Dashboard(): JSX.Element {
   const classes = useStyles();
@@ -28,17 +29,24 @@ export default function Dashboard(): JSX.Element {
   return (
     <>
       <Navbar />
-      <Grid sx={{ padding: 5 }} container rowSpacing={5} columnSpacing={2}>
-        <Grid item xs={12}>
-          <Typography variant="h4" component="h1">
-            Welcome to random facts!
-          </Typography>
-        </Grid>
-        {facts.map(({ id, fact, coverUrl: cover }) => (
-          <Grid item key={id} xs={4} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-            <RandomFactCard fact={fact} cover={cover} />
+      <Grid container>
+        <Grid sx={{ padding: 5 }} container rowSpacing={5} columnSpacing={2}>
+          <Grid item xs={2}>
+            <Sidebar />
           </Grid>
-        ))}
+          <Grid container xs={8} className={classes.container}>
+            <Grid xs={12}>
+              <Typography variant="h4" component="h1">
+                Welcome to random facts!
+              </Typography>
+            </Grid>
+            {facts.map(({ id, fact, coverUrl: cover }) => (
+              <Grid item key={id} xs={4} sx={{ display: 'flex', justifyContent: 'left', alignItems: 'center' }}>
+                <RandomFactCard fact={fact} cover={cover} />
+              </Grid>
+            ))}
+          </Grid>
+        </Grid>
       </Grid>
     </>
   );

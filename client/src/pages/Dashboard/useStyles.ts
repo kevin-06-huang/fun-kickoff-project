@@ -11,7 +11,7 @@ const useStyles = makeStyles(() => ({
     minHeight: '100vh',
     paddingTop: 23,
   },
-  welcome: {
+  container: {
     fontSize: 26,
     paddingBottom: 50,
     color: '#000000',
