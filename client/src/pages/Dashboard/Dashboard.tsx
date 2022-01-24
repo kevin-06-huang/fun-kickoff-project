@@ -9,6 +9,7 @@ import useStyles from './useStyles';
 import { Sidebar } from '../../components/Sidebar/Sidebar';
 import { SidebarData } from '../../components/Sidebar/SidebarData';
 import Paper from '@mui/material/Paper';
+import { EditProfile } from '../../components/EditProfile/EditProfile';
 
 export default function Dashboard(): JSX.Element {
   const classes = useStyles();
@@ -16,15 +17,6 @@ export default function Dashboard(): JSX.Element {
   const { initSocket } = useSocket();
   const history = useHistory();
   const [currentComponent, setView] = useState('RandomFacts');
-
-  const renderSwitch = (param: string) => {
-    switch (param) {
-      case 'Rand':
-        return 'bar';
-      default:
-        return <RandomFacts />;
-    }
-  };
 
   useEffect(() => {
     initSocket();
@@ -36,6 +28,14 @@ export default function Dashboard(): JSX.Element {
     // loading for a split seconds until history.push works
     return <CircularProgress />;
   }
+  const renderSwitch = (param: string) => {
+    switch (param) {
+      case 'EditProfile':
+        return <EditProfile loggedInUser={loggedInUser} />;
+      default:
+        return <RandomFacts />;
+    }
+  };
 
   return (
     <>

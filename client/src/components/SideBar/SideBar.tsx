@@ -19,7 +19,7 @@ const Sidebar: React.FC<Props> = (props) => {
                 color="info"
                 style={{ backgroundColor: 'transparent' }}
                 className={classes.menuItemLinks}
-                onClick={() => props.setView(item.view)}
+                onClick={() => props.setView(item.component)}
               >
                 {item.title}
               </Button>
