@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useAuth } from '../../context/useAuthContext';
 import { useSocket } from '../../context/useSocketContext';
 import { useHistory } from 'react-router-dom';
@@ -8,13 +8,13 @@ import { RandomFacts } from '../../components/RandomFacts/RandomFacts';
 import useStyles from './useStyles';
 import { Sidebar } from '../../components/Sidebar/Sidebar';
 import Paper from '@mui/material/Paper';
-import AvatarDisplay from '../../components/AvatarDisplay/AvatarDisplay';
 
 export default function Dashboard(): JSX.Element {
   const classes = useStyles();
   const { loggedInUser } = useAuth();
   const { initSocket } = useSocket();
   const history = useHistory();
+  const [currentView] = useState(0);
 
   useEffect(() => {
     initSocket();
