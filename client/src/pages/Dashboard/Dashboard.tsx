@@ -8,6 +8,7 @@ import { RandomFacts } from '../../components/RandomFacts/RandomFacts';
 import useStyles from './useStyles';
 import { Sidebar } from '../../components/Sidebar/Sidebar';
 import Paper from '@mui/material/Paper';
+import AvatarDisplay from '../../components/AvatarDisplay/AvatarDisplay';
 
 export default function Dashboard(): JSX.Element {
   const classes = useStyles();
