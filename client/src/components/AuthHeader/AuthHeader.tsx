@@ -26,7 +26,7 @@ const AuthFooter = ({ linkTo, asideText, btnText }: Props): JSX.Element => {
           flexGrow={1}
           className={classes.authHeader}
         >
-          <Button component={Link} to={linkTo} color="inherit" className={classes.accBtn} variant="contained">
+          <Button component={Link} to={linkTo} color="secondary" className={classes.accBtn} variant="contained">
             {btnText}
           </Button>
         </Box>

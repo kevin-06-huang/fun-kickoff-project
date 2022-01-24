@@ -7,6 +7,7 @@ import { Navbar } from '../../components/Navbar/Navbar';
 import { RandomFacts } from '../../components/RandomFacts/RandomFacts';
 import useStyles from './useStyles';
 import { Sidebar } from '../../components/Sidebar/Sidebar';
+import { SidebarData } from '../../components/Sidebar/SidebarData';
 import Paper from '@mui/material/Paper';
 
 export default function Dashboard(): JSX.Element {
@@ -14,7 +15,16 @@ export default function Dashboard(): JSX.Element {
   const { loggedInUser } = useAuth();
   const { initSocket } = useSocket();
   const history = useHistory();
-  const [currentView] = useState(0);
+  const [currentComponent, setView] = useState('RandomFacts');
+
+  const renderSwitch = (param: string) => {
+    switch (param) {
+      case 'Rand':
+        return 'bar';
+      default:
+        return <RandomFacts />;
+    }
+  };
 
   useEffect(() => {
     initSocket();
@@ -33,10 +43,10 @@ export default function Dashboard(): JSX.Element {
       <Grid container>
         <Grid sx={{ padding: 5 }} container rowSpacing={5} columnSpacing={2}>
           <Grid item xs={3}>
-            <Sidebar />
+            <Sidebar setView={setView} />
           </Grid>
           <Grid container xs={7} component={Paper} className={classes.container}>
-            <RandomFacts />
+            {renderSwitch(currentComponent)}
           </Grid>
         </Grid>
       </Grid>
