@@ -8,6 +8,7 @@ import { RandomFactCard } from '../../components/FactCard/RandomFactCard';
 import { facts } from '../../mocks/mockFacts';
 import useStyles from './useStyles';
 import { Sidebar } from '../../components/Sidebar/Sidebar';
+import Paper from '@mui/material/Paper';
 
 export default function Dashboard(): JSX.Element {
   const classes = useStyles();
@@ -34,14 +35,24 @@ export default function Dashboard(): JSX.Element {
           <Grid item xs={3}>
             <Sidebar />
           </Grid>
-          <Grid container xs={8} className={classes.container}>
+          <Grid container xs={7} component={Paper} className={classes.container}>
             <Grid xs={12} className={classes.welcome}>
               <Typography variant="h4" component="h1">
                 Welcome to random facts!
               </Typography>
             </Grid>
             {facts.map(({ id, fact, coverUrl: cover }) => (
-              <Grid item key={id} xs={4} sx={{ display: 'flex', justifyContent: 'left', alignItems: 'center' }}>
+              <Grid
+                item
+                key={id}
+                xs={3.5}
+                sx={{
+                  margin: '1rem',
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                }}
+              >
                 <RandomFactCard fact={fact} cover={cover} />
               </Grid>
             ))}

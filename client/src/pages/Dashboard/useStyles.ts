@@ -13,9 +13,11 @@ const useStyles = makeStyles(() => ({
   },
   container: {
     fontSize: 26,
-    paddingBottom: 50,
+    marginTop: 50,
+    marginBottom: 50,
     color: '#000000',
     fontWeight: 700,
+    alignItems: 'center',
     textAlign: 'center',
   },
   welcome: {
