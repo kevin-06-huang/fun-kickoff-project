@@ -25,14 +25,17 @@ interface Props {
   loggedInUser: User;
   handleSubmit: (
     {
+      first_name,
       email,
     }: {
+      first_name: string;
       email: string;
     },
     {
       setStatus,
       setSubmitting,
     }: FormikHelpers<{
+      first_name: string;
       email: string;
     }>,
   ) => void;
@@ -49,24 +52,41 @@ const EditProfile: React.FC<Props> = ({ loggedInUser, handleSubmit }) => {
   return (
     <>
       <Grid xs={12} className={classes.welcome}>
-        <Typography variant="h4" component="h1">
+        <Typography variant="h4" component="body">
           Welcome to profile edit!
         </Typography>
       </Grid>
-      {[...Array(30)].map((id) => (
+      {[...Array(18)].map((id) => (
         <Avatar key={id} alt="Profile Image" src={`https://robohash.org/${makeid()}.png`} />
       ))}
       <Formik
         initialValues={{
+          first_name: '',
           email: '',
         }}
         validationSchema={Yup.object().shape({
+          first_name: Yup.string().required('First name is required'),
           email: Yup.string().required('Email is required').email('Email is not valid'),
         })}
         onSubmit={handleSubmit}
       >
         {({ handleSubmit, handleChange, values, touched, errors, isSubmitting }) => (
           <form onSubmit={handleSubmit} className={classes.form} noValidate>
+            <FormControl id="first_name" fullWidth={true} margin="dense">
+              <FormLabel>
+                <Typography className={classes.label}>FIRST NAME</Typography>
+              </FormLabel>
+              <OutlinedInput
+                className={classes.inputs}
+                name="first_name"
+                autoComplete="first_name"
+                error={touched.first_name && Boolean(errors.first_name)}
+                value={values.first_name}
+                placeholder="Your first name"
+                onChange={handleChange}
+              />
+              <FormHelperText>{touched.email ? errors.email : ''}</FormHelperText>
+            </FormControl>
             <FormControl id="email" fullWidth={true} margin="dense">
               <FormLabel>
                 <Typography className={classes.label}>EMAIL ADDRESS</Typography>
@@ -75,7 +95,6 @@ const EditProfile: React.FC<Props> = ({ loggedInUser, handleSubmit }) => {
                 className={classes.inputs}
                 name="email"
                 autoComplete="email"
-                autoFocus={true}
                 error={touched.email && Boolean(errors.email)}
                 value={values.email}
                 placeholder="Your email"

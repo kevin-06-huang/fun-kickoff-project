@@ -22,7 +22,10 @@ export default function Dashboard(): JSX.Element {
   const [currentComponent, setView] = useState('RandomFacts');
   const { updateSnackBarMessage } = useSnackBar();
 
-  const handleProfileEdit = ({ email }: { email: string }, { setSubmitting }: FormikHelpers<{ email: string }>) => {
+  const handleProfileEdit = (
+    { first_name, email }: { first_name: string; email: string },
+    { setSubmitting }: FormikHelpers<{ first_name: string; email: string }>,
+  ) => {
     profileEdit(email).then((data) => {
       if (data.error) {
         setSubmitting(false);

@@ -8,24 +8,7 @@ const useStyles = makeStyles((theme: Theme) => ({
       borderBottom: '1.2px solid rgba(0, 0, 0, 0.2)',
     },
   },
-  authWrapper: {
-    minHeight: '100vh',
-    paddingTop: 23,
-  },
-  container: {
-    fontSize: 26,
-    marginTop: 50,
-    marginBottom: 50,
-    color: '#000000',
-    fontWeight: 700,
-    alignItems: 'center',
-    textAlign: 'center',
-  },
   welcome: {
-    fontSize: 26,
-    minHeight: '10%',
-    paddingTop: 50,
-    paddingBottom: 50,
     color: '#000000',
     fontWeight: 700,
     textAlign: 'center',
@@ -35,7 +18,6 @@ const useStyles = makeStyles((theme: Theme) => ({
     marginTop: theme.spacing(1),
   },
   label: {
-    fontSize: 19,
     color: 'rgb(0,0,0,1)',
   },
   inputs: {
