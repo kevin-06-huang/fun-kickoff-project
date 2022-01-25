@@ -7,11 +7,28 @@ import AvatarDisplay from '../AvatarDisplay/AvatarDisplay';
 import { User } from '../../interface/User';
 import Avatar from '@mui/material/Avatar';
 
+import { Formik, FormikHelpers } from 'formik';
+
 interface Props {
-  loggedInUser: User;
+  handleSubmit: (
+    {
+      email,
+      password,
+    }: {
+      email: string;
+      password: string;
+    },
+    {
+      setStatus,
+      setSubmitting,
+    }: FormikHelpers<{
+      email: string;
+      password: string;
+    }>,
+  ) => void;
 }
 
-const EditProfile: React.FC<Props> = (props) => {
+const EditProfile: React.FC<Props> = ({handleSubmit}) => {
   const classes = useStyles();
   function makeid() {
     let text = '';

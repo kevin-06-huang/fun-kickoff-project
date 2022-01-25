@@ -22,13 +22,16 @@ const appointmentSchema = new mongoose.Schema({
     unique: false
   },
   startTime: {
-
+    type: Date,
+    required: true,
   },
   endTime: {
-
+    type: Date,
+    required: true,
   },
   isRecurring: {
-
+    type: Boolean,
+    default: false,
   },
   lastModified: {
     type: Date,

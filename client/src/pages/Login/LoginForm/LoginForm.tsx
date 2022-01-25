@@ -9,7 +9,9 @@ import CircularProgress from '@mui/material/CircularProgress';
 import { Formik, FormikHelpers } from 'formik';
 import * as Yup from 'yup';
 import useStyles from './useStyles';
-
+/*
+  first name, last name, gender, birth date, email address, phone number,where you live, describe yourself
+*/
 interface Props {
   handleSubmit: (
     {
