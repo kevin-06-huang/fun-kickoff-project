@@ -10,6 +10,9 @@ import { Sidebar } from '../../components/Sidebar/Sidebar';
 import { SidebarData } from '../../components/Sidebar/SidebarData';
 import Paper from '@mui/material/Paper';
 import { EditProfile } from '../../components/EditProfile/EditProfile';
+import { FormikHelpers } from 'formik';
+import profileEdit from '../../helpers/APICalls/profileEdit';
+import { useSnackBar } from '../../context/useSnackbarContext';
 
 export default function Dashboard(): JSX.Element {
   const classes = useStyles();
@@ -17,6 +20,28 @@ export default function Dashboard(): JSX.Element {
   const { initSocket } = useSocket();
   const history = useHistory();
   const [currentComponent, setView] = useState('RandomFacts');
+  const { updateSnackBarMessage } = useSnackBar();
+
+  const handleProfileEdit = (
+    { email }: { email: string },
+    { setSubmitting }: FormikHelpers<{ email: string; }>,
+  ) => {
+    profileEdit(email).then((data) => {
+      if (data.error) {
+        setSubmitting(false);
+        updateSnackBarMessage(data.error.message);
+      } else if (data.success) {
+        //updateLoginContext(data.success);
+        console.log('Profile updated')
+      } else {
+        // should not get here from backend but this catch is for an unknown issue
+        console.error({ data });
+
+        setSubmitting(false);
+        updateSnackBarMessage('An unexpected error occurred. Please try again');
+      }
+    });
+  };
 
   useEffect(() => {
     initSocket();
@@ -31,7 +56,7 @@ export default function Dashboard(): JSX.Element {
   const renderSwitch = (param: string) => {
     switch (param) {
       case 'EditProfile':
-        return <EditProfile loggedInUser={loggedInUser} />;
+        return <EditProfile loggedInUser={loggedInUser} handleSubmit={handleProfileEdit} />;
       default:
         return <RandomFacts />;
     }
