@@ -9,22 +9,23 @@ import Avatar from '@mui/material/Avatar';
 
 import { Formik, FormikHelpers } from 'formik';
 
+/*
+  first name, last name, gender, birth date, email address, phone number,where you live, describe yourself
+*/
+
 interface Props {
   loggedInUser: User;
   handleSubmit: (
     {
       email,
-      password,
     }: {
       email: string;
-      password: string;
     },
     {
       setStatus,
       setSubmitting,
     }: FormikHelpers<{
       email: string;
-      password: string;
     }>,
   ) => void;
 }

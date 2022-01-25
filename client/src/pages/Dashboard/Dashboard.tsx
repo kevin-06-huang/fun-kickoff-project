@@ -22,17 +22,14 @@ export default function Dashboard(): JSX.Element {
   const [currentComponent, setView] = useState('RandomFacts');
   const { updateSnackBarMessage } = useSnackBar();
 
-  const handleProfileEdit = (
-    { email }: { email: string },
-    { setSubmitting }: FormikHelpers<{ email: string; }>,
-  ) => {
+  const handleProfileEdit = ({ email }: { email: string }, { setSubmitting }: FormikHelpers<{ email: string }>) => {
     profileEdit(email).then((data) => {
       if (data.error) {
         setSubmitting(false);
         updateSnackBarMessage(data.error.message);
       } else if (data.success) {
         //updateLoginContext(data.success);
-        console.log('Profile updated')
+        console.log('Profile updated');
       } else {
         // should not get here from backend but this catch is for an unknown issue
         console.error({ data });
