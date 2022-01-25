@@ -10,6 +10,7 @@ import Avatar from '@mui/material/Avatar';
 import { Formik, FormikHelpers } from 'formik';
 
 interface Props {
+  loggedInUser: User;
   handleSubmit: (
     {
       email,
@@ -28,7 +29,7 @@ interface Props {
   ) => void;
 }
 
-const EditProfile: React.FC<Props> = ({handleSubmit}) => {
+const EditProfile: React.FC<Props> = ({ loggedInUser, handleSubmit }) => {
   const classes = useStyles();
   function makeid() {
     let text = '';
@@ -43,7 +44,6 @@ const EditProfile: React.FC<Props> = ({handleSubmit}) => {
           Welcome to profile edit!
         </Typography>
       </Grid>
-      <AvatarDisplay user={props.loggedInUser} loggedIn={true} />
       {[...Array(30)].map((id) => (
         <Avatar key={id} alt="Profile Image" src={`https://robohash.org/${makeid()}.png`} />
       ))}
