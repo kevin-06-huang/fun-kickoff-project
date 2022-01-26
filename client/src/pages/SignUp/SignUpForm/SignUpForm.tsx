@@ -56,7 +56,7 @@ const SignUpForm = ({ handleSubmit }: Props): JSX.Element => {
         <form onSubmit={handleSubmit} className={classes.form} noValidate>
           <FormControl id="email" fullWidth={true} margin="dense">
             <FormLabel>
-              <Typography className={classes.label}>EMAIL ADDRESS</Typography>
+              <Typography className={classes.label}>email address</Typography>
             </FormLabel>
             <OutlinedInput
               className={classes.inputs}
@@ -71,7 +71,7 @@ const SignUpForm = ({ handleSubmit }: Props): JSX.Element => {
           </FormControl>
           <FormControl id="name" fullWidth={true} margin="dense">
             <FormLabel>
-              <Typography className={classes.label}>NAME</Typography>
+              <Typography className={classes.label}>name</Typography>
             </FormLabel>
             <OutlinedInput
               className={classes.inputs}
@@ -87,12 +87,12 @@ const SignUpForm = ({ handleSubmit }: Props): JSX.Element => {
           </FormControl>
           <FormControl id="password" fullWidth={true} margin="dense">
             <FormLabel>
-              <Typography className={classes.label}>PASSWORD</Typography>
+              <Typography className={classes.label}>password</Typography>
             </FormLabel>
             <OutlinedInput
               className={classes.inputs}
               name="password"
-              autoComplete="current-password"
+              autoComplete="new-password"
               type="password"
               error={touched.password && Boolean(errors.password)}
               value={values.password}
