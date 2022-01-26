@@ -30,7 +30,7 @@ const ChatSideBanner = ({ loggedInUser }: Props): JSX.Element => {
       <Grid item display="flex" alignItems="center" className={classes.userPanel}>
         <AvatarDisplay loggedIn user={loggedInUser} />
         <Typography className={classes.userText} variant="h5">
-          {loggedInUser.username}
+          {loggedInUser.name}
         </Typography>
         <AuthMenu />
       </Grid>
