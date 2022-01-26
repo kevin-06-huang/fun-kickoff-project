@@ -6,5 +6,8 @@
   },
   "scripts": {
     "prepare": "husky install"
+  },
+  "dependencies": {
+    "uuidv4": "^6.2.12"
   }
 }

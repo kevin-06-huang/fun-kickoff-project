@@ -17,7 +17,7 @@ const useStyles = makeStyles(() => ({
     color: '#000000',
     fontWeight: 700,
     alignItems: 'center',
-    textAlign: 'center',
+    textAlign: 'left',
   },
   welcome: {
     fontSize: 26,

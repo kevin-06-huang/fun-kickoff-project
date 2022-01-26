@@ -26,10 +26,6 @@ const profileSchema = new mongoose.Schema({
   },
   availability: {
     type: [{type: Schema.Types.ObjectId, ref:'Appointment'}],
-  },
-  register_date: {
-    type: Date,
-    default: Date.now
   }
 });
 
