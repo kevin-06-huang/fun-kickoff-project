@@ -9,6 +9,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   label: {
     fontSize: 19,
     color: 'rgb(0,0,0,1)',
+    textTransform: 'uppercase',
   },
   inputs: {
     height: '3.5rem',
