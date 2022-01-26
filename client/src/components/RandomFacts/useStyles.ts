@@ -9,6 +9,7 @@ const useStyles = makeStyles(() => ({
   },
   authWrapper: {
     minHeight: '100vh',
+    paddingTop: 23,
   },
   container: {
     fontSize: 26,
@@ -17,7 +18,7 @@ const useStyles = makeStyles(() => ({
     color: '#000000',
     fontWeight: 700,
     alignItems: 'center',
-    textAlign: 'left',
+    textAlign: 'center',
   },
   welcome: {
     fontSize: 26,

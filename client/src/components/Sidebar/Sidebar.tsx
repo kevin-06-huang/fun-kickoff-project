@@ -1,23 +1,13 @@
-import React, { useState } from 'react';
-import { useAuth } from '../../context/useAuthContext';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { SidebarData } from './SidebarData';
 import useStyles from './useStyles';
+import Button from '@mui/material/Button';
 
-import {
-  AppBar,
-  Toolbar,
-  IconButton,
-  Typography,
-  Menu,
-  MenuItem,
-  ListItemIcon,
-  ListItemText,
-  Divider,
-  Box,
-} from '@mui/material';
-
-const Sidebar: React.FC = () => {
+interface Props {
+  setView: (arg0: string) => void;
+}
+const Sidebar: React.FC<Props> = (props) => {
   const classes = useStyles();
   return (
     <>
@@ -25,9 +15,14 @@ const Sidebar: React.FC = () => {
         {SidebarData.map((item, index) => {
           return (
             <li key={index} className={classes.menuItems}>
-              <Link to={item.path} className={classes.menuItemLinks}>
-                <span>{item.title}</span>
-              </Link>
+              <Button
+                color="info"
+                style={{ backgroundColor: 'transparent' }}
+                className={classes.menuItemLinks}
+                onClick={() => props.setView(item.component)}
+              >
+                {item.title}
+              </Button>
             </li>
           );
         })}
