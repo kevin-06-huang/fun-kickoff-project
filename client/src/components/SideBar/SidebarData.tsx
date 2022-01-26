@@ -1,26 +1,26 @@
 export const SidebarData = [
   {
     title: 'Edit Profile',
-    path: '/edit',
+    component: 'EditProfile',
   },
   {
     title: 'Profile Photo',
-    path: '/photo',
+    component: 'ProfilePhoto',
   },
   {
     title: 'Availability',
-    path: '/availability',
+    component: 'Availability',
   },
   {
     title: 'Payment',
-    path: '/payment',
+    component: 'Payment',
   },
   {
     title: 'Security',
-    path: '/security',
+    component: 'Security',
   },
   {
     title: 'Settings',
-    path: '/settings',
+    component: 'Settings',
   },
 ];

@@ -21,11 +21,6 @@ const useStyles = makeStyles((theme: Theme) => ({
     paddingBottom: '5%',
   },
   menuItemLinks: {
-    display: 'flex',
-    alignItems: 'center',
-    fontSize: '12px',
-    textDecoration: 'none',
-    color: '#bbbbbb',
     '&:hover': {
       color: '#000000',
     },
