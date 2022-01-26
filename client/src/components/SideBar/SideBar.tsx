@@ -1,21 +1,7 @@
-import React, { useState } from 'react';
-import { useAuth } from '../../context/useAuthContext';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { SidebarData } from './SidebarData';
 import useStyles from './useStyles';
-
-import {
-  AppBar,
-  Toolbar,
-  IconButton,
-  Typography,
-  Menu,
-  MenuItem,
-  ListItemIcon,
-  ListItemText,
-  Divider,
-  Box,
-} from '@mui/material';
 
 const Sidebar: React.FC = () => {
   const classes = useStyles();

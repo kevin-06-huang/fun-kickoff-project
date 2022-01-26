@@ -2,6 +2,7 @@ import Button from '@mui/material/Button';
 import { AppBar, Toolbar, Box } from '@mui/material';
 import { Link } from 'react-router-dom';
 import useStyles from './useStyles';
+import logo from '../../Images/logo.png';
 
 interface Props {
   linkTo: string;
@@ -15,6 +16,7 @@ const AuthFooter = ({ linkTo, asideText, btnText }: Props): JSX.Element => {
   return (
     <AppBar position="static">
       <Toolbar>
+        <img src={logo} alt="logo" />
         <Box
           p={1}
           display="flex"
