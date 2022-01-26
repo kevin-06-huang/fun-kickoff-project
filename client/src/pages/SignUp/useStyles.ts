@@ -17,9 +17,10 @@ const useStyles = makeStyles(() => ({
   },
   welcome: {
     fontSize: 26,
-    paddingBottom: 20,
+    paddingBottom: 50,
     color: '#000000',
     fontWeight: 700,
+    textAlign: 'center',
   },
 }));
 

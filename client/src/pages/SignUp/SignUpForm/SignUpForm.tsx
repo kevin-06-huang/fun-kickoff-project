@@ -1,6 +1,9 @@
 import Button from '@mui/material/Button';
-import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
+import FormLabel from '@mui/material/FormLabel';
+import FormControl from '@mui/material/FormControl';
+import OutlinedInput from '@mui/material/OutlinedInput';
+import FormHelperText from '@mui/material/FormHelperText';
 import Typography from '@mui/material/Typography';
 import CircularProgress from '@mui/material/CircularProgress';
 import { Formik, FormikHelpers } from 'formik';
@@ -10,13 +13,13 @@ import useStyles from './useStyles';
 interface Props {
   handleSubmit: (
     {
-      username,
       email,
+      name,
       password,
     }: {
       email: string;
       password: string;
-      username: string;
+      name: string;
     },
     {
       setStatus,
@@ -24,7 +27,7 @@ interface Props {
     }: FormikHelpers<{
       email: string;
       password: string;
-      username: string;
+      name: string;
     }>,
   ) => void;
 }
@@ -37,10 +40,10 @@ const SignUpForm = ({ handleSubmit }: Props): JSX.Element => {
       initialValues={{
         email: '',
         password: '',
-        username: '',
+        name: '',
       }}
       validationSchema={Yup.object().shape({
-        username: Yup.string().required('Username is required').max(40, 'Username is too long'),
+        name: Yup.string().required('Name is required'),
         email: Yup.string().required('Email is required').email('Email is not valid'),
         password: Yup.string()
           .required('Password is required')
@@ -51,65 +54,57 @@ const SignUpForm = ({ handleSubmit }: Props): JSX.Element => {
     >
       {({ handleSubmit, handleChange, values, touched, errors, isSubmitting }) => (
         <form onSubmit={handleSubmit} className={classes.form} noValidate>
-          <TextField
-            id="username"
-            label={<Typography className={classes.label}>Username</Typography>}
-            fullWidth
-            margin="normal"
-            InputLabelProps={{
-              shrink: true,
-            }}
-            InputProps={{
-              classes: { input: classes.inputs },
-            }}
-            name="username"
-            autoComplete="username"
-            autoFocus
-            helperText={touched.username ? errors.username : ''}
-            error={touched.username && Boolean(errors.username)}
-            value={values.username}
-            onChange={handleChange}
-          />
-          <TextField
-            id="email"
-            label={<Typography className={classes.label}>E-mail address</Typography>}
-            fullWidth
-            margin="normal"
-            InputLabelProps={{
-              shrink: true,
-            }}
-            InputProps={{
-              classes: { input: classes.inputs },
-            }}
-            name="email"
-            autoComplete="email"
-            helperText={touched.email ? errors.email : ''}
-            error={touched.email && Boolean(errors.email)}
-            value={values.email}
-            onChange={handleChange}
-          />
-          <TextField
-            id="password"
-            label={<Typography className={classes.label}>Password</Typography>}
-            fullWidth
-            margin="normal"
-            InputLabelProps={{
-              shrink: true,
-            }}
-            InputProps={{
-              classes: { input: classes.inputs },
-            }}
-            type="password"
-            autoComplete="current-password"
-            helperText={touched.password ? errors.password : ''}
-            error={touched.password && Boolean(errors.password)}
-            value={values.password}
-            onChange={handleChange}
-          />
+          <FormControl id="email" fullWidth={true} margin="dense">
+            <FormLabel>
+              <Typography className={classes.label}>email address</Typography>
+            </FormLabel>
+            <OutlinedInput
+              className={classes.inputs}
+              name="email"
+              autoComplete="email"
+              error={touched.email && Boolean(errors.email)}
+              value={values.email}
+              placeholder="Your email"
+              onChange={handleChange}
+            />
+            <FormHelperText>{touched.email ? errors.email : ''}</FormHelperText>
+          </FormControl>
+          <FormControl id="name" fullWidth={true} margin="dense">
+            <FormLabel>
+              <Typography className={classes.label}>name</Typography>
+            </FormLabel>
+            <OutlinedInput
+              className={classes.inputs}
+              name="name"
+              autoComplete="name"
+              autoFocus={true}
+              error={touched.name && Boolean(errors.name)}
+              value={values.name}
+              placeholder="Your name"
+              onChange={handleChange}
+            />
+            <FormHelperText>{touched.name ? errors.name : ''}</FormHelperText>
+          </FormControl>
+          <FormControl id="password" fullWidth={true} margin="dense">
+            <FormLabel>
+              <Typography className={classes.label}>password</Typography>
+            </FormLabel>
+            <OutlinedInput
+              className={classes.inputs}
+              name="password"
+              autoComplete="new-password"
+              type="password"
+              error={touched.password && Boolean(errors.password)}
+              value={values.password}
+              placeholder="Create a password"
+              onChange={handleChange}
+            />
+            <FormHelperText>{touched.password ? errors.password : ''}</FormHelperText>
+          </FormControl>
 
           <Box textAlign="center" marginTop={5}>
             <Button type="submit" size="large" variant="contained" color="primary" className={classes.submit}>
-              {isSubmitting ? <CircularProgress style={{ color: 'white' }} /> : 'Create'}
+              {isSubmitting ? <CircularProgress style={{ color: 'white' }} /> : 'SIGN UP'}
             </Button>
           </Box>
         </form>

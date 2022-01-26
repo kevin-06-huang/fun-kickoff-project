@@ -8,12 +8,11 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   label: {
     fontSize: 19,
-    color: 'rgb(0,0,0,0.4)',
-    paddingLeft: '5px',
+    color: 'rgb(0,0,0,1)',
+    textTransform: 'uppercase',
   },
   inputs: {
-    marginTop: '.8rem',
-    height: '2rem',
+    height: '3.5rem',
     padding: '5px',
   },
   forgot: {
@@ -26,7 +25,6 @@ const useStyles = makeStyles((theme: Theme) => ({
     width: 160,
     height: 56,
     borderRadius: theme.shape.borderRadius,
-    marginTop: 49,
     fontSize: 16,
     backgroundColor: '#3a8dff',
     fontWeight: 'bold',
